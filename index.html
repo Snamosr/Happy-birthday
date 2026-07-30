@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: url(Gemini_Generated_Image_ysp1t1ysp1t1ysp1.png)
+            no-repeat center center;
+            background-size: cover;
+            /*background: linear-gradient(135deg, #ffedfa, #e0f2fe, #fef08a);
+            background-size: 400% 400%;*/
+            animation: gradientShift 15s ease infinite;
+            color: #1e293b;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Music Overlay Screen */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /*background: linear-gradient(135deg, #e0f2fe, #ffedfa);*/
+           /* background: rgba(180, 166, 42, 0.938);*/
+           background: url(dg4srje.jpg);
+            background-size: cover;
+            display: flex;
+            z-index: 100;
+            display: flex;
+            /*flex-direction: column;*/
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .play-btn {
+            background: #ea580c;
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.3);
+            transition: transform 0.2s ease, background 0.2s ease;
+            animation: pulse 2s infinite;
+        }
+        .play-btn:hover {
+            background: #c2410c;
+            transform: scale(1.05);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(234, 88, 12, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0); }
+        }
+
+        /* Main Card (Hidden initially behind overlay) */
+        .card {
+
+            background: transparent;
+            backdrop-filter: blur(0.5px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            z-index: 10;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+        }
+        .card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .profile-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .profile-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%; 
+        }
+        h1 {
+            /*color: #0284c7;*/
+            color: #ff007f;
+            font-size: 2rem;
+            margin-bottom: 0.2rem;
+            font-weight: 800;
+        }
+        h2 {
+            /*color: #0284c7;*/
+            color: #ff007f;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        p {
+            color: #fffff0;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+        .highlight {
+            color: #ea580c;
+            font-weight: 700;
+        }
+
+        /* Balloons */
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 60px;
+            height: 75px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            cursor: pointer;
+            animation: floatUp 7s linear infinite;
+            transition: transform 0.1s ease;
+            box-shadow: inset -6px -6px 12px rgba(0,0,0,0.07), inset 6px 6px 12px rgba(255,255,255,0.3);
+        }
+        .balloon::after {
+            content: "▲";
+            text-align: center;
+            font-size: 10px;
+            color: inherit;
+            position: absolute;
+            bottom: -8px;
+            left: 24px;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            90% { opacity: 0.9; }
+            100% { transform: translateY(-115vh) rotate(15deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Overlay Screen to unlock audio playback -->
+    <div id="overlay">
+        <button class="play-btn" onclick="startCard()">Open Birthday Card 💌</button>
+    </div>
+
+    <!-- Hidden Background Audio Element -->
+    <audio id="bg-music" loop>
+        <!-- Replace 'music.mp3' with your actual audio filename -->
+        <source src="Happy_birthday_german(chosic.com).mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="card" id="birthday-card">
+        <div class="profile-container">
+            <img src="c1000650896.png" alt="Birthday Girl">
+        </div>
+        <h1>Happy Birthday!🎉</h1>
+        <h2>💛Tough💛</h2>
+        <p>Wishing you a year ahead filled with happiness, success, good health, and zero bugs.</p>
+        <p>Thank you for being such an amazing friend. May this new age bring you perfect peace, lots of laughter, and everything your heart desires.</p>
+        <p class="highlight">Enjoy your special day and keep compiling great memories! 🚀🎉</p>
+    </div>
+
+    <script>
+        const colors = ['#38bdf8', '#fb923c', '#f43f5e', '#c084fc', '#4ade80', '#facc15'];
+        let spawningBalloons = false;
+
+        // Function called when the user clicks the "Open Birthday Card" button
+        function startCard() {
+            const overlay = document.getElementById('overlay');
+            const card = document.getElementById('birthday-card');
+            const music = document.getElementById('bg-music');
+
+            // 1. Play the music file
+            music.play().catch(error => console.log("Audio play failed:", error));
+
+            // 2. Hide overlay and reveal card
+            overlay.style.opacity = '0';
+            overlay.style.transform = 'scale(1.1)';
+            setTimeout(() => overlay.remove(), 800);
+            card.classList.add('reveal');
+
+            // 3. Start balloon generation loop
+            spawningBalloons = true;
+            setInterval(() => {
+                if(spawningBalloons) createBalloon();
+            }, 1000);
+        }
+        
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            balloon.style.backgroundColor = randomColor;
+            balloon.style.color = randomColor;
+            balloon.style.left = Math.random() * 92 + 'vw';
+            
+            const sizeModifier = 0.75 + Math.random() * 0.5;
+            balloon.style.transform = `scale(${sizeModifier})`;
+            balloon.style.animationDuration = (5.5 + Math.random() * 4) + 's';
+            
+            balloon.addEventListener('click', () => {
+                createPoppedParticles(balloon.offsetLeft, balloon.offsetTop, randomColor);
+                balloon.remove();
+            });
+            
+            document.body.appendChild(balloon);
+            setTimeout(() => { balloon.remove(); }, 10000);
+        }
+
+        function createPoppedParticles(x, y, color) {
+            for (let i = 0; i < 10; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.left = x + 30 + 'px';
+                particle.style.top = y + 30 + 'px';
+                particle.style.width = '6px';
+                particle.style.height = '6px';
+                particle.style.backgroundColor = color;
+                particle.style.borderRadius = '50%';
+                particle.style.zIndex = '5';
+                
+                const angle = (i / 10) * Math.PI * 2;
+                const velocity = 3 + Math.random() * 5;
+                
+                document.body.appendChild(particle);
+                
+                let localX = 0;
+                let localY = 0;
+                let opacity = 1;
+                
+                const anim = setInterval(() => {
+                    localX += Math.cos(angle) * velocity;
+                    localY += Math.sin(angle) * velocity + 0.4;
+                    opacity -= 0.04;
+                    
+                    particle.style.transform = `translate(${localX}px, ${localY}px)`;
+                    particle.style.opacity = opacity;
+                    
+                    if (opacity <= 0) {
+                        clearInterval(anim);
+                        particle.remove();
+                    }
+                }, 16);
+            }
+        }
+    </script>
+</body>
+</html>
