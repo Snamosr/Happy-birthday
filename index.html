@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <!-- Overlay Screen to unlock audio playback -->
+    <div id="overlay">
+        <button class="play-btn" onclick="startCard()">Open Birthday Card 💌</button>
+    </div>
+
+    <!-- Hidden Background Audio Element -->
+    <audio id="bg-music" loop>
+        <!-- Replace 'music.mp3' with your actual audio filename -->
+        <source src="Happy_birthday_german(chosic.com).mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Overlay image on the background -->
+    <div id="tray-img">
+        <img src="her_pic_2.png" alt="Birthday Girl">
+    </div>
+    
+    <!-- Addition of a flower -->
+    <div id="flower">
+        <img id="bg-flower" src="golden_bloom.png" alt="Flower">
+    </div>
+
+    <!-- container for message -->
+    <div class="card" id="birthday-card">
+        <div class="profile-container">
+            <img src="her_pic_1.png" alt="Birthday Girl">
+        </div>
+        <h1>Happy Birthday!🎉</h1>
+        <h2>💛Tough💛</h2>
+        <p>Wishing you a year ahead filled with happiness, success, good health, and zero bugs.</p>
+        <p>Thank you for being such an amazing friend. May this new age bring you perfect peace, lots of laughter, and everything your heart desires.</p>
+        <p class="highlight">Enjoy your special day and keep compiling great memories! 🚀🎉</p>
+    </div>
+
+</body>
+</html>
