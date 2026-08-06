@@ -4,6 +4,7 @@
     padding: 0;
 }
 body {
+    /* Replace background image with desired imagery */
     background: url(background_img.png);
     background-size: cover;
     animation: gradientShift 15s ease infinite;
